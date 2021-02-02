@@ -20,4 +20,4 @@ app.post("/api/add", addPoints);
 app.post("/api/deduct", deductPoints);
 
 // Read Route
-app.get("/api/read/:username", readPoints);
+app.get("/api/read/:userName", readPoints);

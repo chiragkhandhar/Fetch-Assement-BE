@@ -99,4 +99,30 @@ exports.addPoints = (request, response) => {
 
 exports.deductPoints = (request, response) => {};
 
-exports.readPoints = (request, response) => {};
+exports.readPoints = (request, response) => {
+  const userName = request.params.userName;
+  const responseBody = {
+    status: 200,
+    json: {
+      code: "SUCCESS",
+    },
+  };
+
+  if (userStore.has(userName)) {
+    const userObject = userStore.get(userName);
+    const responseList = [];
+
+    for (let [key, value] of userObject.pointsMap.entries())
+      responseList.push({ partnerName: key, points: value });
+
+    responseBody.status = 200;
+    responseBody.json = responseList;
+  } else {
+    responseBody.status = 404;
+    responseBody.json = {
+      code: "USER NOT FOUND",
+    };
+  }
+
+  response.status(responseBody.status).json(responseBody.json);
+};
