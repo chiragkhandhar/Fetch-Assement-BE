@@ -7,6 +7,22 @@ const printMap = (map) => {
   console.log("------------------------------");
 };
 
+const isSufficient = (pointsMap, point_to_deduct) => {
+  let total = 0;
+  for (let [key, value] of pointsMap.entries()) total = total + value;
+  return total >= point_to_deduct;
+};
+
+const getDeductions = (deductionMap) => {
+  let responseList = [];
+  for (let [key, value] of deductionMap.entries()) {
+    responseList.push({ [key]: value });
+  }
+  return responseList;
+};
+
 module.exports = {
   printMap,
+  isSufficient,
+  getDeductions,
 };
