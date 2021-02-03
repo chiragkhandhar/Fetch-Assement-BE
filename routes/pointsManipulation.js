@@ -45,7 +45,7 @@ exports.addPoints = (request, response) => {
         responseBody.json = {
           code: "BAD REQUEST",
           description:
-            "You need sufficient points to add this negative points transaction",
+            "You need sufficient points to add this negative points transaction.",
         };
       }
     } else {
@@ -88,7 +88,7 @@ exports.addPoints = (request, response) => {
       responseBody.json = {
         code: "BAD REQUEST",
         description:
-          "You need sufficient points to add this negative points transaction",
+          "You need sufficient points to add this negative points transaction.",
       };
     }
   }
@@ -98,7 +98,7 @@ exports.addPoints = (request, response) => {
 };
 
 exports.deductPoints = (request, response) => {
-    const userName = request.body.username;
+    const userName = request.body.userName;
   let point_to_deduct = request.body.points;
 
   const responseBody = {
